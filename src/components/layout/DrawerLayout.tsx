@@ -13,6 +13,7 @@ import clsx from "clsx";
 import React from "react";
 
 import { config } from "../../config";
+import StripesBar from "../misc/StripesBar";
 
 import Footer from "./Footer";
 
@@ -86,6 +87,10 @@ const useStyles = makeStyles(theme => ({
         paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(4),
     },
+    stripesBar: {
+        marginBottom: "1rem",
+        height: "2rem",
+    },
 }));
 
 export default function DrawerLayout(props: any) {
@@ -135,6 +140,7 @@ export default function DrawerLayout(props: any) {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
+                    <StripesBar className={classes.stripesBar} />
                     {props.children}
                 </Container>
                 <Footer />
