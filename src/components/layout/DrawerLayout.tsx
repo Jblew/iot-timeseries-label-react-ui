@@ -17,21 +17,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import clsx from "clsx";
 import React from "react";
 
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {"Copyright © "}
-            <Link color="inherit" href="https://material-ui.com/">
-                Your Website
-            </Link>{" "}
-            {new Date().getFullYear()}
-            {". Built with "}
-            <Link color="inherit" href="https://material-ui.com/">
-                Material-UI.
-            </Link>
-        </Typography>
-    );
-}
+import Footer from "./Footer";
 
 const drawerWidth = 240;
 
@@ -186,7 +172,7 @@ export default function DrawerLayout(props: any) {
                         </Grid>
                     </Grid>
                 </Container>
-                <Copyright />
+                <Footer />
             </main>
         </div>
     );
