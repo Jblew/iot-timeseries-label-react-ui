@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
+import Button from "@material-ui/core/Button";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,11 @@ function App() {
                 <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
                     Learn React
                 </a>
+                <p>
+                    <Button variant="contained" color="primary">
+                        Hello World
+                    </Button>
+                </p>
             </header>
         </div>
     );
