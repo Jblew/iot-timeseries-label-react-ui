@@ -1,0 +1,14 @@
+dist: xenial
+language: node_js
+sudo: false
+
+branches:
+    except:
+        - /^v[0-9]/
+
+before_install:
+    - npm i -g npm
+
+script:
+    - npm run build
+    - npm run test
