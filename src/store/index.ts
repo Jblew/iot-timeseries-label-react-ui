@@ -10,9 +10,9 @@ import { State } from "./State";
 import { Store } from "./Store";
 import { composeEnhancers } from "./utils";
 
-export default function configureStore(): Store {
-    const history = createBrowserHistory();
+export const history = createBrowserHistory();
 
+export function configureStore(): Store {
     const routerMiddleware = createRouterMiddleware(history);
 
     // configure middlewares
