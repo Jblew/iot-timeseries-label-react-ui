@@ -27,16 +27,16 @@ export function configureStore(): Store {
 
     const rootReducer: Reducer<State, Actions.Type> = combineReducers({
         router: connectRouter(history),
-        auth: rolesAuthModule.reducer,
+        rolesAuth: rolesAuthModule.reducer,
     });
 
     const actions: Actions = {
         root: new RootActionsImpl(rolesAuthModule.actions),
-        auth: rolesAuthModule.actions,
+        rolesAuth: rolesAuthModule.actions,
     };
 
     const store = createStore(rootReducer, initialState, enhancer);
-    store.dispatch<any>(actions.auth.initialize());
+    store.dispatch<any>(actions.root.initialize());
     return {
         ...store,
         actions,

@@ -1,11 +1,11 @@
 import * as firebase from "firebase/app";
+import { RolesAuthModule } from "firestore-roles-redux-module";
 import { RolesConfig } from "iot-timeseries-label-core";
 
-import { RolesAuthModule } from "../../../../../firestore-roles-redux-module/src/index";
-export { RolesAuthModule } from "../../../../../firestore-roles-redux-module/src/index";
+import { State } from "../../State";
 
 export function configureRolesAuthModule() {
-    return RolesAuthModule.getModule(
+    return RolesAuthModule.getModule<State>(
         {
             roles: RolesConfig,
             callbacks: {

@@ -1,9 +1,10 @@
-import { RolesAuthModule } from "./modules/roles-auth";
+import { RolesAuthModule } from "firestore-roles-redux-module";
+
 import { RootActions } from "./root/RootActions";
 
 export interface Actions {
     root: RootActions;
-    auth: RolesAuthModule.PublicActions;
+    rolesAuth: RolesAuthModule.PublicActions;
 }
 
 export namespace Actions {

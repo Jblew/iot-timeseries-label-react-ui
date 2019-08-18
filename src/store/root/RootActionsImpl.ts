@@ -1,6 +1,6 @@
+import { RolesAuthModule } from "firestore-roles-redux-module";
 import { Dispatch } from "redux";
 
-import { RolesAuthModule } from "../modules/roles-auth";
 import { State } from "../State";
 
 import { RootActions } from "./RootActions";
@@ -14,7 +14,7 @@ export class RootActionsImpl implements RootActions {
 
     public initialize() {
         return (dispatch: Dispatch, getState: () => State) => {
-            dispatch(this.authActions.initialize());
+            dispatch<any>(this.authActions.initialize());
         };
     }
 }
