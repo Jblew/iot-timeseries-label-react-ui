@@ -3,9 +3,7 @@ import { ConnectedRouter } from "connected-react-router";
 import React from "react";
 import { Provider } from "react-redux";
 
-import Dashboard from "./components/Dashboard";
-import DrawerLayout from "./components/layout/DrawerLayout";
-import Menu from "./components/Menu";
+import ViewRouter from "./components/views/ViewRouter";
 import { configureStore, history } from "./store";
 import theme from "./theme";
 
@@ -15,9 +13,7 @@ function App() {
         <Provider store={store}>
             <ConnectedRouter history={history}>
                 <ThemeProvider theme={theme}>
-                    <DrawerLayout menu={<Menu />}>
-                        <Dashboard />
-                    </DrawerLayout>
+                    <ViewRouter />
                 </ThemeProvider>
             </ConnectedRouter>
         </Provider>
