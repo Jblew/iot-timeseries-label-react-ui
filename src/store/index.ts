@@ -1,10 +1,11 @@
 import { connectRouter, routerMiddleware as createRouterMiddleware } from "connected-react-router";
+import { configureFeatureStore as AuthFeature_configureFeatureStore } from "features/auth/redux/configureFeatureStore";
 import { createBrowserHistory } from "history";
 import { applyMiddleware, combineReducers, createStore, Reducer } from "redux";
 import thunk from "redux-thunk";
+import { Action } from "typesafe-actions";
 
 import { Actions } from "./Actions";
-import { configureRolesAuthModule } from "./modules/roles-auth";
 import { RootActionsImpl } from "./root/RootActionsImpl";
 import { State } from "./State";
 import { Store } from "./Store";
@@ -23,16 +24,16 @@ export function configureStore(): Store {
     // rehydrate state on app start
     const initialState = {};
 
-    const rolesAuthModule = configureRolesAuthModule();
+    const authFeature = AuthFeature_configureFeatureStore();
 
-    const rootReducer: Reducer<State, Actions.Type> = combineReducers({
+    const rootReducer: Reducer<State, Action<any>> = combineReducers({
         router: connectRouter(history),
-        rolesAuth: rolesAuthModule.reducer,
+        rolesAuth: authFeature.reducer,
     });
 
     const actions: Actions = {
-        root: new RootActionsImpl(rolesAuthModule.actions),
-        rolesAuth: rolesAuthModule.actions,
+        root: new RootActionsImpl(authFeature.actions),
+        rolesAuth: authFeature.actions,
     };
 
     const store = createStore(rootReducer, initialState, enhancer);

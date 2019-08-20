@@ -1,12 +1,9 @@
-import { RolesAuthModule } from "firestore-roles-redux-module";
+import { Actions as AuthFeatureActions } from "features/auth/redux/Actions";
+import { Actions as AuthFeatureActionsType } from "features/auth/redux/Actions";
+import { RootActions } from "store/root/RootActions";
 
-import { RootActions } from "./root/RootActions";
-
-export interface Actions {
+export type Actions = {
     root: RootActions;
-    rolesAuth: RolesAuthModule.PublicActions;
-}
+} & AuthFeatureActions;
 
-export namespace Actions {
-    export type Type = RootActions.Type | RolesAuthModule.PublicActionType;
-}
+export type ActionsType = AuthFeatureActionsType;

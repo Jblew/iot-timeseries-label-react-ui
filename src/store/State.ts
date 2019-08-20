@@ -1,7 +1,6 @@
 import { RouterState } from "connected-react-router";
-import { RolesAuthModule } from "firestore-roles-redux-module";
+import { State as AuthFeatureState } from "features/auth/redux/State";
 
-export interface State {
+export type State = {
     router: RouterState;
-    rolesAuth: RolesAuthModule.State;
-}
+} & AuthFeatureState;
